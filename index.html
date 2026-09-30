@@ -53,8 +53,29 @@
   <button onclick="completeTask(0.50)">Earn $0.50</button>
 
       <div class="card wallet">
-        <h2>💳 Wallet</h2>
-        <button onclick="withdraw()">Request Withdrawal</button>
+  <h2>💳 Withdraw</h2>
+
+  <input
+    type="number"
+    id="withdrawAmount"
+    placeholder="Amount in USD"
+    min="5"
+    step="0.01"
+  >
+
+  <input
+    type="tel"
+    id="mpesaNumber"
+    placeholder="M-Pesa phone number"
+  >
+
+  <input
+    type="text"
+    id="accountName"
+    placeholder="Account name"
+  >
+
+  <button onclick="withdraw()">Request Withdrawal</button>
       </div>
 <div class="card">
   <h2>📜 Earnings History</h2>
