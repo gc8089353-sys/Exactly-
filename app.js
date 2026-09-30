@@ -1,4 +1,5 @@
 let balance = 0;
+let history = [];
 
 function login() {
   const username = document.getElementById("username").value.trim();
@@ -14,25 +15,35 @@ function login() {
   document.getElementById("appBox").style.display = "block";
   document.getElementById("userName").textContent = username;
 
-  loadBalance();
+  loadData();
 }
 
-function loadBalance() {
+function loadData() {
   const savedBalance = localStorage.getItem("balance");
+  const savedHistory = localStorage.getItem("history");
 
-  if (savedBalance !== null) {
-    balance = parseFloat(savedBalance);
-  }
+  balance = savedBalance ? parseFloat(savedBalance) : 0;
+  history = savedHistory ? JSON.parse(savedHistory) : [];
 
   updateBalance();
+  displayHistory();
 }
 
 function completeTask(amount = 0.10) {
   balance += amount;
 
+  const entry = {
+    amount: amount,
+    time: new Date().toLocaleString()
+  };
+
+  history.unshift(entry);
+
   localStorage.setItem("balance", balance.toFixed(2));
+  localStorage.setItem("history", JSON.stringify(history));
 
   updateBalance();
+  displayHistory();
 
   alert("Task completed! You earned $" + amount.toFixed(2));
 }
@@ -40,6 +51,29 @@ function completeTask(amount = 0.10) {
 function updateBalance() {
   document.getElementById("balance").textContent =
     "$" + balance.toFixed(2);
+}
+
+function displayHistory() {
+  const historyBox = document.getElementById("history");
+
+  if (history.length === 0) {
+    historyBox.innerHTML = "<p>No earnings yet.</p>";
+    return;
+  }
+
+  historyBox.innerHTML = "";
+
+  history.forEach(function(entry) {
+    const item = document.createElement("p");
+
+    item.textContent =
+      "💰 Earned $" +
+      entry.amount.toFixed(2) +
+      " — " +
+      entry.time;
+
+    historyBox.appendChild(item);
+  });
 }
 
 function withdraw() {
@@ -65,6 +99,7 @@ window.onload = function () {
     document.getElementById("loginBox").style.display = "none";
     document.getElementById("appBox").style.display = "block";
     document.getElementById("userName").textContent = savedUsername;
-    loadBalance();
+
+    loadData();
   }
 };
