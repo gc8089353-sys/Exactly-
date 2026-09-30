@@ -7,20 +7,18 @@ body {
 
 header {
   text-align: center;
-  padding: 25px;
+  padding: 25px 15px;
   background: #00c853;
   color: #000;
 }
 
 main {
-  padding: 20px;
   max-width: 600px;
   margin: auto;
+  padding: 20px;
 }
 
-.balance,
-.task,
-.wallet {
+.card {
   background: #1e1e1e;
   padding: 20px;
   margin: 15px 0;
@@ -32,19 +30,30 @@ main {
 }
 
 .balance h2 {
-  font-size: 35px;
+  font-size: 38px;
   color: #00e676;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
 }
 
 button {
   width: 100%;
   padding: 14px;
+  margin-top: 10px;
   border: none;
   border-radius: 10px;
   background: #00c853;
   color: #000;
-  font-weight: bold;
   font-size: 16px;
+  font-weight: bold;
 }
 
 button:active {
