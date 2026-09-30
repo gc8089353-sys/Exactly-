@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Earn App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>💰 EARN APP</h1>
+    <p>Complete tasks and earn rewards</p>
+  </header>
+
+  <main>
+    <div class="balance">
+      <p>Your Balance</p>
+      <h2>$0.00</h2>
+    </div>
+
+    <h2>Available Tasks</h2>
+
+    <div class="task">
+      <h3>🎁 Daily Check-in</h3>
+      <p>Complete your daily check-in.</p>
+      <button onclick="completeTask()">Complete Task</button>
+    </div>
+
+    <div class="task">
+      <h3>📋 Simple Task</h3>
+      <p>Complete a simple activity.</p>
+      <button onclick="completeTask()">Complete Task</button>
+    </div>
+
+    <div class="wallet">
+      <h2>💳 Withdraw</h2>
+      <button onclick="withdraw()">Request Withdrawal</button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
