@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+}
+
+header {
+  text-align: center;
+  padding: 25px;
+  background: #00c853;
+  color: #000;
+}
+
+main {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.balance,
+.task,
+.wallet {
+  background: #1e1e1e;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 15px;
+}
+
+.balance {
+  text-align: center;
+}
+
+.balance h2 {
+  font-size: 35px;
+  color: #00e676;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #00c853;
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+button:active {
+  transform: scale(0.98);
+}
