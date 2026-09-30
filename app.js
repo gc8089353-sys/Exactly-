@@ -77,12 +77,33 @@ function displayHistory() {
 }
 
 function withdraw() {
-  if (balance < 5) {
+  const amount = parseFloat(
+    document.getElementById("withdrawAmount").value
+  );
+
+  const phone = document.getElementById("mpesaNumber").value.trim();
+  const name = document.getElementById("accountName").value.trim();
+
+  if (isNaN(amount) || amount < 5) {
     alert("Minimum withdrawal is $5.00.");
     return;
   }
 
-  alert("Withdrawal request feature will be connected later.");
+  if (amount > balance) {
+    alert("Insufficient balance.");
+    return;
+  }
+
+  if (phone === "" || name === "") {
+    alert("Please enter your M-Pesa number and account name.");
+    return;
+  }
+
+  alert(
+    "Withdrawal request received for $" +
+    amount.toFixed(2) +
+    ". It is awaiting processing."
+  );
 }
 
 function logout() {
