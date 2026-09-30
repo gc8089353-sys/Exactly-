@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Earn App</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
   <header>
@@ -12,31 +15,54 @@
   </header>
 
   <main>
-    <div class="balance">
-      <p>Your Balance</p>
-      <h2>$0.00</h2>
-    </div>
 
-    <h2>Available Tasks</h2>
+    <section id="loginBox" class="card">
+      <h2>Welcome</h2>
+      <p>Enter your username to continue.</p>
 
-    <div class="task">
-      <h3>🎁 Daily Check-in</h3>
-      <p>Complete your daily check-in.</p>
-      <button onclick="completeTask()">Complete Task</button>
-    </div>
+      <input
+        type="text"
+        id="username"
+        placeholder="Enter username"
+      >
 
-    <div class="task">
-      <h3>📋 Simple Task</h3>
-      <p>Complete a simple activity.</p>
-      <button onclick="completeTask()">Complete Task</button>
-    </div>
+      <button onclick="login()">Login</button>
+    </section>
 
-    <div class="wallet">
-      <h2>💳 Withdraw</h2>
-      <button onclick="withdraw()">Request Withdrawal</button>
-    </div>
+    <section id="appBox" style="display:none;">
+
+      <div class="card balance">
+        <p>Welcome, <span id="userName"></span> 👋</p>
+        <p>Your Balance</p>
+        <h2 id="balance">$0.00</h2>
+      </div>
+
+      <h2>🎯 Available Tasks</h2>
+
+      <div class="card task">
+        <h3>🎁 Daily Check-in</h3>
+        <p>Complete your daily check-in.</p>
+        <button onclick="completeTask()">Complete Task</button>
+      </div>
+
+      <div class="card task">
+        <h3>📋 Simple Task</h3>
+        <p>Complete a simple activity.</p>
+        <button onclick="completeTask()">Complete Task</button>
+      </div>
+
+      <div class="card wallet">
+        <h2>💳 Wallet</h2>
+        <button onclick="withdraw()">Request Withdrawal</button>
+      </div>
+
+      <button onclick="logout()">Logout</button>
+
+    </section>
+
   </main>
 
   <script src="app.js"></script>
+
 </body>
 </html>
