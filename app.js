@@ -27,14 +27,14 @@ function loadBalance() {
   updateBalance();
 }
 
-function completeTask() {
-  balance += 0.10;
+function completeTask(amount = 0.10) {
+  balance += amount;
 
   localStorage.setItem("balance", balance.toFixed(2));
 
   updateBalance();
 
-  alert("Task completed! You earned $0.10.");
+  alert("Task completed! You earned $" + amount.toFixed(2));
 }
 
 function updateBalance() {
