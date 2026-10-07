@@ -1,23 +1,33 @@
 const SUPABASE_URL = "https://mpbfkvholuzfcjqqeczv.supabase.co";
 const SUPABASE_KEY = "sb_publishable_KQPhP4j0Yt7uCjMIm0SsLg_GaQc8lG6";
+const supabase = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 let balance = 0;
 let history = [];
 
-function login() {
-  const username = document.getElementById("username").value.trim();
+async function login() {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
 
-  if (username === "") {
-    alert("Please enter a username.");
+  if (!email || !password) {
+    alert("Please enter your email and password.");
     return;
   }
 
-  localStorage.setItem("username", username);
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email: email,
+    password: password
+  });
 
-  document.getElementById("loginBox").style.display = "none";
-  document.getElementById("appBox").style.display = "block";
-  document.getElementById("userName").textContent = username;
+  if (error) {
+    alert(error.message);
+    return;
+  }
 
-  loadData();
+  alert("Login successful!");
+  updateBalance();
 }
 
 function loadData() {
