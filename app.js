@@ -1,5 +1,5 @@
-const SUPABASE_URL = https://mpbfkvholuzfcjqqeczv.supabase.co/rest/v1/
-const SUPABASE_KEY = sb_publishable_KQPhP4j0Yt7uCjMIm0SsLg_GaQc8lG6
+const SUPABASE_URL = "https://mpbfkvholuzfcjqqeczv.supabase.co";
+const SUPABASE_KEY = "sb_publishable_KQPhP4j0Yt7uCjMIm0SsLg_GaQc8lG6";
 let balance = 0;
 let history = [];
 
