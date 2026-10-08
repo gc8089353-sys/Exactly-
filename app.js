@@ -125,14 +125,4 @@ function logout() {
   document.getElementById("loginBox").style.display = "block";
 }
 
-window.onload = function () {
-  const savedUsername = localStorage.getItem("username");
 
-  if (savedUsername) {
-    document.getElementById("loginBox").style.display = "none";
-    document.getElementById("appBox").style.display = "block";
-    document.getElementById("userName").textContent = savedUsername;
-
-    loadData();
-  }
-};
