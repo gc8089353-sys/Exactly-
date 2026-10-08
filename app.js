@@ -1,6 +1,6 @@
 const SUPABASE_URL = "https://mpbfkvholuzfcjqqeczv.supabase.co";
 const SUPABASE_KEY = "sb_publishable_KQPhP4j0Yt7uCjMIm0SsLg_GaQc8lG6";
-const supabase = window.supabase.createClient(
+const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
@@ -16,7 +16,7 @@ async function login() {
     return;
   }
 
-  const { data, error } = await supabase.auth.signInWithPassword({
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
     email: email,
     password: password
   });
